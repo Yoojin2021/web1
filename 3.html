@@ -3,27 +3,42 @@
 <head>
   <title>필리핀 여행정보</title>
   <meta charset="utf-8">
+  <script>
+    function LinkSetColor(color) {
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while (i < alist.length) {
+        alist[i].style.color = color;
+        i = i + 1;
+      }
+    }
+    function BodySetColor(color){
+      document.querySelector('body').style.color = color;
+    }
+    function BodySetBackgroundColor(color) {
+      document.querySelector('body').style.backgroundColor = color;
+    }
+    function nightDayHandler(self) {
+      if (self.value === 'night') {
+        Body.setBackgroundColor('black');
+        Body.setColor('white');
+        self.value = 'day';
+
+        Links.setColor('powderblue');
+      } else {
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
+        self.value = 'night';
+
+        Links.setColor('blue');
+      }
+    }
+  </script>
 </head>
 <body>
   <h1><a href="index.html">필리핀</a></h1>
   <input type="button" value="night" onclick="
-    document.querySelector('body').style.backgroundColor = 'black';
-    document.querySelector('body').style.color = 'white';
-  ">
-  <input type="button" value="day" onclick="
-    document.querySelector('body').style.backgroundColor = 'white';
-    document.querySelector('body').style.color = 'black';
-  ">
-  <input id="night_day" type="button" value="night" onclick="
-    if(document.querySelector('#night_day').value === 'night'){
-      document.querySelector('body').style.backgroundColor = 'black';
-      document.querySelector('body').style.color = 'white';
-      document.querySelector('#night_day').value = 'day'
-    } else {
-      document.querySelector('body').style.backgroundColor = 'white';
-      document.querySelector('body').style.color = 'black';
-      document.querySelector('#night_day').value = 'night'
-    }
+    nightDayHandler(this);
   ">
   <ol>
     <li><a href="1.html">세부</a></li>
@@ -34,6 +49,19 @@
   <p>야자수가 늘어선 해변에 <strong>새하얀 모래, 에메랄드빛 <u>투명한 바다</u></strong>로 유명한 <a href="https://travel.naver.com/overseas/PHBOR294260/city/summary" target="_blank" title="보라카이 여행">휴양지</a>다.
   <img src="common3.jpg" width="100%">
   </p><p style="margin-top:45px;">11~5월은 건기로 야외 활동하기 좋지만 5월은 낮기온이 높아 매우 덥다. 건기 중에서도 1~4월의 강수량 가장 적다. 기온은 12~2월까지 상대적으로 낮은 편이며 3월부터 낮기온이 올라 5월에 가장 덥다. 우기에는
-  한낮에 1~2시간가량 스콜성 폭우가 쏟아지거나 밤새 비가 내린다.</p>
+  한낮에 1~2시간가량 스콜성 폭우가 쏟아지거나 밤새 비가 내린다.
+  </p>
+  <input type="button" value="night" onclick="
+    var target = document.querySelector('body');
+    if(this.value === 'night'){
+      target.style.backgroundColor = 'black';
+      target.style.color = 'white';
+      this.value = 'day';
+    } else {
+      target.style.backgroundColor = 'white';
+      target.style.color = 'black';
+      this.value = 'night';
+    }
+  ">
 </body>
 </html>
