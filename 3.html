@@ -3,37 +3,8 @@
 <head>
   <title>필리핀 여행정보</title>
   <meta charset="utf-8">
-  <script>
-    function LinkSetColor(color) {
-      var alist = document.querySelectorAll('a');
-      var i = 0;
-      while (i < alist.length) {
-        alist[i].style.color = color;
-        i = i + 1;
-      }
-    }
-    function BodySetColor(color){
-      document.querySelector('body').style.color = color;
-    }
-    function BodySetBackgroundColor(color) {
-      document.querySelector('body').style.backgroundColor = color;
-    }
-    function nightDayHandler(self) {
-      if (self.value === 'night') {
-        Body.setBackgroundColor('black');
-        Body.setColor('white');
-        self.value = 'day';
-
-        Links.setColor('powderblue');
-      } else {
-        Body.setBackgroundColor('white');
-        Body.setColor('black');
-        self.value = 'night';
-
-        Links.setColor('blue');
-      }
-    }
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="colors.js"></script>
 </head>
 <body>
   <h1><a href="index.html">필리핀</a></h1>
@@ -51,17 +22,5 @@
   </p><p style="margin-top:45px;">11~5월은 건기로 야외 활동하기 좋지만 5월은 낮기온이 높아 매우 덥다. 건기 중에서도 1~4월의 강수량 가장 적다. 기온은 12~2월까지 상대적으로 낮은 편이며 3월부터 낮기온이 올라 5월에 가장 덥다. 우기에는
   한낮에 1~2시간가량 스콜성 폭우가 쏟아지거나 밤새 비가 내린다.
   </p>
-  <input type="button" value="night" onclick="
-    var target = document.querySelector('body');
-    if(this.value === 'night'){
-      target.style.backgroundColor = 'black';
-      target.style.color = 'white';
-      this.value = 'day';
-    } else {
-      target.style.backgroundColor = 'white';
-      target.style.color = 'black';
-      this.value = 'night';
-    }
-  ">
 </body>
 </html>
